@@ -8,6 +8,9 @@ describe "Project Listing" do
       project2 = FactoryGirl.create(:project, :title => "Project 2")
       project3 = FactoryGirl.create(:project, :title => "Project 3")
 
+    
+    
+
       # Go to the page with the projects
       visit "/projects"
       # Expect the page we're on is the page with the projects
@@ -26,9 +29,22 @@ describe "Project Listing" do
 
       #page.should have_content('Project 3')
       expect(page).to have_content('Project 3')
+
+      # Click a link to the project1's show page
+      click_link('Project 1')
+      # Expect we're on project1's show page
+      expect(current_path).to eq(project_path(project1))
+      # Expect on this page the first h1 has the text project1's title
+      #page.should have_selector('h1:first', text: project1.title)
+      expect(page).to have_selector('h1:first', text: project1.title)
     end
     
     it "should display the navigation" do
+
+      project1 = FactoryGirl.create(:project, :title => "Project 1")
+      project2 = FactoryGirl.create(:project, :title => "Project 2")
+      project3 = FactoryGirl.create(:project, :title => "Project 3")
+      
       # Visit the root URL
       visit "/"
       # Expect the page we're on is root
@@ -43,7 +59,12 @@ describe "Project Listing" do
       expect(current_path).to eq(projects_path)
 
       # Expect the projects nav element is active
-      page.should have_selector('.navbar ul li.active a', text: "Projects") 
+      #page.should have_selector('.navbar ul li.active a', text: "Projects") 
+      expect(page).to have_selector('.navbar ul li.active a', text: "Projects")
+
+      # On a project's show page, the Projects nav element should still be active
+      click_link 'Project 1'
+      #page.should have_selector('.navbar ul li.active a', text: "Projects")
       expect(page).to have_selector('.navbar ul li.active a', text: "Projects")
     end  
   end  

@@ -1,9 +1,13 @@
+<br>
+<br>
+<br>
+<br>
 <h1> Listing projects </h1>
-<a href="/projects">
-<p id="navbar"> Home </p> </a>
 
 
-<% @projects.each do |sym| %>
-	<%= sym.title %>
-	<br>
+
+<% @projects.each do |p| %>
+	 	<a href="projects/<%=p.id %>" >
+		<%= p.title %>
+	</a><br>
 <%	end %>
