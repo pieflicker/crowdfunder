@@ -3,4 +3,7 @@
 <p id="navbar"> Home </p> </a>
 
 
-<%= @projects %>
+<% @projects.each do |sym| %>
+	<%= sym.title %>
+	<br>
+<%	end %>
