@@ -41,7 +41,7 @@ describe "User Authentication" do
         has_no_link?('Sign Up')
         has_link?('Logout')
       end
-
+    end
       it "should successfully log in" do
         visit '/'
         find('.navbar').has_no_link?('Logout').should be_true
@@ -91,6 +91,6 @@ describe "User Authentication" do
         #page.should have_no_content("Account created")
         expect(page).to have_no_content("Account created")
       end
-    end
+
   end
 end

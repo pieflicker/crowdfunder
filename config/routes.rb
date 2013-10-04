@@ -1,8 +1,9 @@
 Crowdfunder::Application.routes.draw do
 
 
-  get "sessions/new"
 
+resources :sessions, :only => [:new, :create]
+delete "/sessions" => "sessions#destroy", as: "session" 
 resources :welcome 
 resources :users, :only => [:new, :create]
 resources :projects
@@ -15,7 +16,7 @@ root :to => "projects#index"
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # get/post/patch/delete/head 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
