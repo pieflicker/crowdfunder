@@ -7,7 +7,7 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:user_id)
+    #pledge.should have(1).errors_on(:user_id)
     expect(pledge).to have(1).errors_on(:user_id)
   end
 
@@ -17,7 +17,7 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:project_id)
+    #pledge.should have(1).errors_on(:project_id)
     expect(pledge).to have(1).errors_on(:project_id)
   end
 
@@ -27,7 +27,7 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:amount)
+    #pledge.should have(1).errors_on(:amount)
     expect(pledge).to have(1).errors_on(:amount)
   end
 
@@ -37,7 +37,7 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:amount)
+    #pledge.should have(1).errors_on(:amount)
     expect(pledge).to have(1).errors_on(:amount)
   end
 
@@ -47,7 +47,7 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:amount)
+    #pledge.should have(1).errors_on(:amount)
     expect(pledge).to have(1).errors_on(:amount)
   end
 end
